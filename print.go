@@ -8,6 +8,10 @@ var (
 	stop bool
 )
 
+func isStop() bool {
+	return stop
+}
+
 func StopPrint() {
 	stop = true
 }
