@@ -8,15 +8,15 @@ var (
 	stop bool
 )
 
-func isStop() bool {
+func Enabled() bool {
 	return stop
 }
 
-func StopPrint() {
+func Disable() {
 	stop = true
 }
 
-func StartPrint() {
+func Enable() {
 	stop = false
 }
 
