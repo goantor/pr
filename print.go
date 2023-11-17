@@ -5,19 +5,19 @@ import (
 )
 
 var (
-	stop bool
+	enabled bool
 )
 
 func Enabled() bool {
-	return stop
+	return enabled
 }
 
 func Disable() {
-	stop = true
+	enabled = false
 }
 
 func Enable() {
-	stop = false
+	enabled = true
 }
 
 func PrintBlack(format string, a ...interface{}) {
@@ -85,7 +85,7 @@ func SprintWhite(format string, a ...interface{}) string {
 }
 
 func base(kind string, format string, a ...interface{}) {
-	if stop {
+	if !enabled {
 		return
 	}
 
