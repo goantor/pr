@@ -117,6 +117,70 @@ func base(kind string, format string, a ...interface{}) {
 	}
 }
 
+func Black(format string, a ...interface{}) {
+	base("black", format, a...)
+}
+
+func Red(format string, a ...interface{}) {
+	base("red", format, a...)
+}
+
+func Green(format string, a ...interface{}) {
+	base("green", format, a...)
+}
+
+func Yellow(format string, a ...interface{}) {
+	base("yellow", format, a...)
+}
+
+func Blue(format string, a ...interface{}) {
+	base("blue", format, a...)
+}
+
+func Magenta(format string, a ...interface{}) {
+	base("magenta", format, a...)
+}
+
+func Cyan(format string, a ...interface{}) {
+	base("cyan", format, a...)
+}
+
+func White(format string, a ...interface{}) {
+	base("white", format, a...)
+}
+
+func SBlack(format string, a ...interface{}) string {
+	return baseString("black", format, a...)
+}
+
+func SRed(format string, a ...interface{}) string {
+	return baseString("red", format, a...)
+}
+
+func SGreen(format string, a ...interface{}) string {
+	return baseString("green", format, a...)
+}
+
+func SYellow(format string, a ...interface{}) string {
+	return baseString("yellow", format, a...)
+}
+
+func SBlue(format string, a ...interface{}) string {
+	return baseString("blue", format, a...)
+}
+
+func SMagenta(format string, a ...interface{}) string {
+	return baseString("magenta", format, a...)
+}
+
+func SCyan(format string, a ...interface{}) string {
+	return baseString("cyan", format, a...)
+}
+
+func SWhite(format string, a ...interface{}) string {
+	return baseString("white", format, a...)
+}
+
 func baseString(kind string, format string, a ...interface{}) string {
 	if stop {
 		return ""
