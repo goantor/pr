@@ -182,7 +182,7 @@ func SWhite(format string, a ...interface{}) string {
 }
 
 func baseString(kind string, format string, a ...interface{}) string {
-	if stop {
+	if !enabled {
 		return ""
 	}
 
