@@ -1,6 +1,7 @@
 package pr
 
 import (
+	"fmt"
 	C "github.com/fatih/color"
 )
 
@@ -206,4 +207,14 @@ func baseString(kind string, format string, a ...interface{}) string {
 	}
 
 	return ""
+}
+
+
+func Panic(format string, a ...interface{}) {
+	s := fmt.Sprintf(format, a...)
+	panic(s)
+}
+func RedPanic(format string, a ...interface{}) {
+	s := SRed(format, a...)
+	panic(s)
 }
