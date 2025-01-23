@@ -253,3 +253,41 @@ func RedPanic(format string, a ...interface{}) {
 	s := SRed(format, a...)
 	panic(s)
 }
+
+// 系统类: Cyan
+// 错误类: Red
+// 提示类: Magenta
+// 强提示: Yellow
+// 成功: Green
+
+func prefix(mark, format string) string {
+	ts := time.Now().Format("2006-01-02 15:04:05.000")
+	mark = fmt.Sprintf("[%s]", mark)
+	return fmt.Sprintf("%23s %9s: %s", ts, mark, format)
+
+}
+
+func System(format string, a ...interface{}) {
+	format = prefix("system", format)
+	ForceCyan(format, a...)
+}
+
+func Error(format string, a ...interface{}) {
+	format = prefix("error", format)
+	ForceRed(format, a...)
+}
+
+func Notice(format string, a ...interface{}) {
+	format = prefix("notice", format)
+	Magenta(format, a...)
+}
+
+func Warning(format string, a ...interface{}) {
+	format = prefix("warning", format)
+	Yellow(format, a...)
+}
+
+func Info(format string, a ...interface{}) {
+	format = prefix("info", format)
+	Green(format, a...)
+}
