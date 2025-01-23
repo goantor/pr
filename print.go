@@ -22,35 +22,35 @@ func Enable() {
 }
 
 func PrintBlack(format string, a ...interface{}) {
-	base("black", format, a...)
+	base(false, "black", format, a...)
 }
 
 func PrintRed(format string, a ...interface{}) {
-	base("red", format, a...)
+	base(false, "red", format, a...)
 }
 
 func PrintGreen(format string, a ...interface{}) {
-	base("green", format, a...)
+	base(false, "green", format, a...)
 }
 
 func PrintYellow(format string, a ...interface{}) {
-	base("yellow", format, a...)
+	base(false, "yellow", format, a...)
 }
 
 func PrintBlue(format string, a ...interface{}) {
-	base("blue", format, a...)
+	base(false, "blue", format, a...)
 }
 
 func PrintMagenta(format string, a ...interface{}) {
-	base("magenta", format, a...)
+	base(false, "magenta", format, a...)
 }
 
 func PrintCyan(format string, a ...interface{}) {
-	base("cyan", format, a...)
+	base(false, "cyan", format, a...)
 }
 
 func PrintWhite(format string, a ...interface{}) {
-	base("white", format, a...)
+	base(false, "white", format, a...)
 }
 
 func SprintBlack(format string, a ...interface{}) string {
@@ -85,8 +85,8 @@ func SprintWhite(format string, a ...interface{}) string {
 	return baseString("white", format, a...)
 }
 
-func base(kind string, format string, a ...interface{}) {
-	if !enabled {
+func base(force bool, kind string, format string, a ...interface{}) {
+	if !force && !enabled {
 		return
 	}
 
@@ -119,35 +119,67 @@ func base(kind string, format string, a ...interface{}) {
 }
 
 func Black(format string, a ...interface{}) {
-	base("black", format, a...)
+	base(false, "black", format, a...)
 }
 
 func Red(format string, a ...interface{}) {
-	base("red", format, a...)
+	base(false, "red", format, a...)
 }
 
 func Green(format string, a ...interface{}) {
-	base("green", format, a...)
+	base(false, "green", format, a...)
 }
 
 func Yellow(format string, a ...interface{}) {
-	base("yellow", format, a...)
+	base(false, "yellow", format, a...)
 }
 
 func Blue(format string, a ...interface{}) {
-	base("blue", format, a...)
+	base(false, "blue", format, a...)
 }
 
 func Magenta(format string, a ...interface{}) {
-	base("magenta", format, a...)
+	base(false, "magenta", format, a...)
 }
 
 func Cyan(format string, a ...interface{}) {
-	base("cyan", format, a...)
+	base(false, "cyan", format, a...)
 }
 
 func White(format string, a ...interface{}) {
-	base("white", format, a...)
+	base(false, "white", format, a...)
+}
+
+func ForceBlack(format string, a ...interface{}) {
+	base(true, "black", format, a...)
+}
+
+func ForceRed(format string, a ...interface{}) {
+	base(true, "red", format, a...)
+}
+
+func ForceGreen(format string, a ...interface{}) {
+	base(true, "green", format, a...)
+}
+
+func ForceYellow(format string, a ...interface{}) {
+	base(true, "yellow", format, a...)
+}
+
+func ForceBlue(format string, a ...interface{}) {
+	base(true, "blue", format, a...)
+}
+
+func ForceMagenta(format string, a ...interface{}) {
+	base(true, "magenta", format, a...)
+}
+
+func ForceCyan(format string, a ...interface{}) {
+	base(true, "cyan", format, a...)
+}
+
+func ForceWhite(format string, a ...interface{}) {
+	base(true, "white", format, a...)
 }
 
 func SBlack(format string, a ...interface{}) string {
@@ -208,7 +240,6 @@ func baseString(kind string, format string, a ...interface{}) string {
 
 	return ""
 }
-
 
 func Panic(format string, a ...interface{}) {
 	s := fmt.Sprintf(format, a...)
