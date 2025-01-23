@@ -3,6 +3,7 @@ package pr
 import (
 	"fmt"
 	C "github.com/fatih/color"
+	"time"
 )
 
 var (
@@ -89,6 +90,9 @@ func base(force bool, kind string, format string, a ...interface{}) {
 	if !force && !enabled {
 		return
 	}
+
+	ts := time.Now().Format("2006-01-02 15:04:05.000")
+	format = fmt.Sprintf("%23s -> %s", ts, format)
 
 	switch kind {
 	case "black":
