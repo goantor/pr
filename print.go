@@ -117,6 +117,8 @@ func base(force bool, kind string, format string, a ...interface{}) {
 		C.White(format, a...)
 		break
 	}
+
+	C.Unset()
 }
 
 func Black(format string, a ...interface{}) {
